@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <title>Linked Lists</title>
   </head>
   <body>
-    <section>
+    <section class="create-bookmark">
       <h1>Linked Lists</h1>
-      <input type="text" placeholder="title" />
-      <input type="text" placeholder="url" />
+      <input id="title-input" type="text" placeholder="title" />
+      <input id="url-input" type="text" placeholder="url" />
+      <button id="create-bookmark-btn">Create Bookmark</button>
     </section>
 
-    <section>
+    <section class="bookmark-list">
       <article>
-        <h2></h2>
-        <a href="#"></a>
-        <button></button>
-        <button></button>
+        <h2>Title</h2>
+        <a href="#">link</a>
+        <button>Mark as Read</button>
+        <button>Remove</button>
       </article>
     </section>
-
+    <script src="scripts.js"></script>
   </body>
 </html>
