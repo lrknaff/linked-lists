@@ -25,31 +25,28 @@ function addAnotherBookmark () {
 
 //function to add 'read' class on bookmark
 function markAsRead () {
-  $('.bookmark-info').addClass('read');
+  $('.bookmark-info').toggleClass('read');
 };
 
-// //function to remove class 'read' on bookmark
-// function removeMarkRead () {
-//   $('.bookmark-info').removeClass('read');
-// };
-//
+
 //function to remove bookmark when you click remove button
 function removeBookmark () {
-  var bookmarkInfo = $('.bookmark-info').val();
-  $('remove-btn').remove(bookmarkInfo);
+  $('.bookmark-info').remove();
 };
 
+//post new bookmark
 $('#create-bookmark-btn').on('click', function (){
   getTitleInput();
   getUrlInput();
   addAnotherBookmark();
-
 });
 
+//add class read on button click
 $('.create-bookmark').on('click', '#markasread-btn', function (){
   markAsRead();
 });
 
-$('#remove-btn').on ('click', function (){
+//remove previous bookmark
+$('.create-bookmark').on('click', '#remove-btn', function (){
   removeBookmark();
 });
