@@ -1,5 +1,4 @@
 
-
 function getTitleInput () {
   var titleInput = $('#title-input').val();
   console.log(titleInput);
@@ -10,24 +9,23 @@ function getUrlInput () {
   console.log(urlInput);
 }
 
-function addBookmarkText () {
-   //store input variables
-  var titleInput = $('#title-input').val();
-  var urlInput = $('#url-input').val();
-  //insert getTitleInput in h2
-  $('h2').text(titleInput);
-  $('a').text(urlInput);
-}
 
 function addAnotherBookmark () {
-  var bookmarkList = $('.bookmark-list').html();
-  $('body').append('<div>' + bookmarkList + '</div>');
-}
+  var titleInput = $('#title-input').val();
+  var urlInput = $('#url-input').val();
+  //add new bookmark to list
+  $('.create-bookmark').append(`
+      <article>
+        <h2>${titleInput}</h2>
+        <a href="#">${urlInput}</a>
+        <button>Mark as Read</button>
+        <button>Remove</button>
+      </article>`);
+};
 
 $('#create-bookmark-btn').click(function (){
   getTitleInput();
   getUrlInput();
-  addBookmarkText();
   addAnotherBookmark();
 
 });
