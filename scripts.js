@@ -25,7 +25,7 @@ function addAnotherBookmark () {
   $('.create-bookmark').append(`
       <article class="bookmark-info">
         <h2>${titleInput}</h2>
-        <a href="#">${urlInput}</a>
+        <a href="${urlInput}">${urlInput}</a>
         <button id="markasread-btn">Mark as Read</button>
         <button id="remove-btn">Remove</button>
       </article>`);
@@ -36,6 +36,14 @@ function addAnotherBookmark () {
   });
 }
 };
+
+
+//function to test if URL is valid
+function testValidUrl () {
+  var urlInput = $('#url-input').val();
+  return urlInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+};
+
 
 //function to count number of bookmarks
 function getNumberOfBookmarks () {
@@ -50,14 +58,24 @@ function displayNumberOfBookmarks () {
 
 //function to count number of read bookmarks
 function getNumberOfRead () {
-  var numberOfRead = $('.read').length;
+  var numberOfRead = $('.bookmark-info.read').length;
 }
 
 //function to display number of read
 function displayNumberOfRead () {
-  var numberOfRead = $('.read').length;
+  var numberOfRead = $('.bookmark-info.read').length;
   $('.number-of-read').text(numberOfRead);
 };
+
+//function to count number of unread
+function displayNumberOfUnread () {
+  var numberOfUnread = $('.bookmark-info:not(.read)').length;
+  $('.number-of-unread').text(numberOfUnread);
+};
+
+// function displayNumberOfUnread () {
+//   $('.number-of-unread').text();
+// }
 
 //function to clear input field and disable button if both fields have content
 function clearInputFields () {
@@ -80,23 +98,57 @@ $('#title-input, #url-input').keyup(function () {
 
 //post new bookmark
 $('#create-bookmark-btn').on('click', function (){
+  console.log(testValidUrl())
+  if(testValidUrl()) {
+    submitBookmarkEvents()
+  } else {
+    alert('Please enter a valid URL');
+  }
+});
+
+function submitBookmarkEvents () {
   getTitleInput();
   getUrlInput();
   addAnotherBookmark();
   clearInputFields();
   getNumberOfBookmarks();
   displayNumberOfBookmarks();
-});
+  displayNumberOfUnread();
+}
 
 //add class read on button click
 $('.create-bookmark').on('click', '#markasread-btn', function (){
   $(this).parent().toggleClass('read');
+  if ($(this).text() === 'Mark as Read') {
+    $(this).text('Mark as Unread');
+  } else {
+    $(this).text('Mark as Read');
+  };
   getNumberOfRead();
   displayNumberOfRead();
+  displayNumberOfUnread();
 });
 
 //remove bookmark
 $('.create-bookmark').on('click', '#remove-btn', function (){
   $(this).parent().remove();
 displayNumberOfBookmarks();
+getNumberOfRead();
+displayNumberOfRead();
+displayNumberOfUnread();
 })
+
+
+//button to clear read bookmarks
+$('#clear-read').on('click', function () {
+  clearReadBookmarks();
+  getNumberOfRead();
+  displayNumberOfRead();
+  getNumberOfBookmarks();
+  displayNumberOfBookmarks();
+})
+
+//function to clear read
+function clearReadBookmarks() {
+  $('.read').remove();
+}
