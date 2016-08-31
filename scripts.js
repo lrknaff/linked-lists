@@ -15,10 +15,10 @@ function addAnotherBookmark () {
   var urlInput = $('#url-input').val();
   //add new bookmark to list
   $('.create-bookmark').append(`
-      <article>
+      <article class="bookmark">
         <h2>${titleInput}</h2>
         <a href="#">${urlInput}</a>
-        <button>Mark as Read</button>
+        <button class="mark-as-read-btn">Mark as Read</button>
         <button>Remove</button>
       </article>`);
 };
@@ -29,3 +29,6 @@ $('#create-bookmark-btn').click(function (){
   addAnotherBookmark();
 
 });
+$('.bookmark',).click('.mark-as-read-btn',  function(){
+  $(this).toggleClass('.read');
+// });
