@@ -34,6 +34,13 @@ a {
   font-weight: 300;
 }
 
+.message {
+  font-size: 17px;
+  padding-top: 10px;
+  font-family: 'Lato', serif;
+  color: #4a4a4a;
+}
+
 .number-count p {
   padding-top: 7%;
 }
