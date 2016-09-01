@@ -2,23 +2,34 @@
 <html>
   <head>
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="reset.css">
     <title>Linked Lists</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Playfair+Display:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <section class="header">
+      <header>
+        <h1>Bookmarks</h1>
+      </header>
 
-    <div class="number-of-bookmarks"></div>
-    <div class="number-of-read"></div>
-    <div class="number-of-unread"></div>
-
-    <section class="create-bookmark">
-      <h1>Linked Lists</h1>
-      <input id="title-input" type="text" placeholder="title" />
-      <input id="url-input" type="url" placeholder="url" />
-      <input type='submit' id="create-bookmark-btn" disabled="true"/>
-      <div class="message"></div>
+      <section class="create-bookmark">
+        <input id="title-input" type="text" placeholder="title" />
+        <input id="url-input" type="url" placeholder="url" />
+        <input type='submit' id="create-bookmark-btn" disabled="true"/>
+        <div class="message"></div>
+      </section>
     </section>
 
-    <button id="clear-read">Clear Read Bookmarks</button>
+    <section class="number-counter">
+      <div class="number-of-bookmarks"><h6>bookmarks</h6><p class="number-count"></p></div>
+      <div class="number-of-read"><h6>read</h6><p class="number-count"></p></div>
+      <div class="number-of-unread"><h6>unread</h6><p class="number-count"></p></div>
+    </section>
+
+    <div id="clear-read-btn">
+      <button id="clear-read">Clear Read Bookmarks</button>
+    </div>
 
     <script src="scripts.js"></script>
   </body>

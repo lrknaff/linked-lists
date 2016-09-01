@@ -1,0 +1,178 @@
+body {
+  background-color: white;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 80px;
+  color: #ff5101;
+  letter-spacing: 3.2px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: #4a4a4a;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 25px;
+  padding-bottom: 5px;
+}
+
+h6 {
+  font-size: 12px;
+  font-family: 'Playfair Display', serif;
+  color: #4a4a4a;
+  letter-spacing: .5px;
+  padding-top: 6px;
+}
+
+a {
+  font-family: 'Lato', sans-serif;
+  color: #4a4a4a;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.number-count p {
+  padding-top: 7%;
+}
+
+.header {
+  background: #ebebeb;
+  width: 100vw;
+  padding: 30px 0;
+}
+
+header {
+  width: 100vw;
+  text-align: center;
+  margin: 0 auto;
+  padding: 60px 0 40px 0;
+}
+
+.create-bookmark {
+  width: 100%;
+  position: relative;
+  margin: 12px auto;
+  text-align: center;;
+}
+
+#title-input, #url-input {
+  padding: 10px 15px;
+  width: 250px;
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #4a4a4a;
+  margin: 5px 0;
+}
+
+#create-bookmark-btn {
+  background-color: #4a4a4a;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 15px;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#buttons {
+  width: 100%;
+  background-color: white;
+  margin: 5px 0;
+}
+
+#markasread-btn, #remove-btn, #clear-read {
+  background-color: #4a4a4a;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#markasread-btn, #remove-btn {
+  display: inline-block;
+}
+
+.read #markasread-btn {
+  background-color: #ff5101;
+}
+
+#clear-read-btn {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.number-counter {
+  width: 90%;
+  position: relative;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.number-counter div {
+  background-color: #ff5101;
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  margin: 10px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 400;
+  vertical-align: top;
+}
+
+.bookmark-info {
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 30px;
+}
+
+
+
+@media (max-width: 670px) {
+  #create-bookmark-btn {
+    margin-top: 20px
+  }
+  .bookmark-info {
+    margin-left: 7%;
+  }
+}
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 75px;
+    letter-spacing: 2.2px;
+  }
+  #create-bookmark-btn {
+    display: block;
+    margin: auto;
+    margin-top: 20px
+  }
+  .bookmark-info {
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 450px) {
+  h1 {
+    font-size: 55px;
+  }
+  .bookmark-info {
+    margin-left: 5%;
+  }
+}

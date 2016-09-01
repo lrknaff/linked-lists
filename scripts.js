@@ -22,12 +22,12 @@ function addAnotherBookmark () {
 
   else {
 //add new bookmark to list
-  $('.create-bookmark').append(`
+  $('.number-counter').append(`
       <article class="bookmark-info">
         <h2>${titleInput}</h2>
         <a href="${urlInput}">${urlInput}</a>
-        <button id="markasread-btn">Mark as Read</button>
-        <button id="remove-btn">Remove</button>
+        <div id="buttons"><button id="markasread-btn">Mark as Read</button>
+        <button id="remove-btn">Remove</button></div>
       </article>`);
 
   //function to add unique id for each bookmark
@@ -53,7 +53,7 @@ function getNumberOfBookmarks () {
 //function to display number of bookmarks
 function displayNumberOfBookmarks () {
   var numberOfBookmarks = $('.bookmark-info').length;
-  $('.number-of-bookmarks').text(numberOfBookmarks);
+  $('.number-of-bookmarks p').text(numberOfBookmarks);
 }
 
 //function to count number of read bookmarks
@@ -64,13 +64,13 @@ function getNumberOfRead () {
 //function to display number of read
 function displayNumberOfRead () {
   var numberOfRead = $('.bookmark-info.read').length;
-  $('.number-of-read').text(numberOfRead);
+  $('.number-of-read p').text(numberOfRead);
 };
 
 //function to count number of unread
 function displayNumberOfUnread () {
   var numberOfUnread = $('.bookmark-info:not(.read)').length;
-  $('.number-of-unread').text(numberOfUnread);
+  $('.number-of-unread p').text(numberOfUnread);
 };
 
 // function displayNumberOfUnread () {
@@ -117,8 +117,8 @@ function submitBookmarkEvents () {
 }
 
 //add class read on button click
-$('.create-bookmark').on('click', '#markasread-btn', function (){
-  $(this).parent().toggleClass('read');
+$('.number-counter').on('click', '#markasread-btn', function (){
+  $(this).parent().parent().toggleClass('read');
   if ($(this).text() === 'Mark as Read') {
     $(this).text('Mark as Unread');
   } else {
@@ -130,8 +130,8 @@ $('.create-bookmark').on('click', '#markasread-btn', function (){
 });
 
 //remove bookmark
-$('.create-bookmark').on('click', '#remove-btn', function (){
-  $(this).parent().remove();
+$('.number-counter').on('click', '#remove-btn', function (){
+  $(this).parent().parent().remove();
 displayNumberOfBookmarks();
 getNumberOfRead();
 displayNumberOfRead();
@@ -151,4 +151,4 @@ $('#clear-read').on('click', function () {
 //function to clear read
 function clearReadBookmarks() {
   $('.read').remove();
-}
+};
